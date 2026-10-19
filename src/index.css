@@ -107,6 +107,8 @@ h3 em,
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   animation: titleTextShine 4.5s ease-in-out infinite;
+  padding-right: 0.14em;
+  padding-left: 0.02em;
 }
 
 @keyframes titleTextShine {
@@ -5270,16 +5272,24 @@ a:hover > .text-link svg,
 
 .ceo-heading {
   font-size: clamp(1.85rem, 3.2vw, 2.45rem);
-  line-height: 1.24;
+  line-height: 1.32;
   color: var(--ink);
   margin-top: 10px;
   margin-bottom: 22px;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
+  overflow: visible;
 }
 
 .ceo-heading em {
   font-style: italic;
+  display: inline-block;
+  padding-right: 0.22em;
+  padding-left: 0.04em;
+  padding-bottom: 0.04em;
+  letter-spacing: normal;
+  overflow: visible;
+  vertical-align: baseline;
 }
 
 .ceo-quote-callout {
