@@ -1,0 +1,18 @@
+{
+  "title": "Shine LUX | Professional Cleaning Services Across Australia",
+  "description": "Shine LUX delivers premium residential and commercial cleaning services across Australia. Trusted for house cleaning, end of lease, steam carpet cleaning, and commercial maintenance.",
+  "language": "en",
+  "robots": {
+    "index": true
+  },
+  "icons": {
+    "icon": "/favicon.svg"
+  },
+  "openGraph": {
+    "image": "https://res.cloudinary.com/dyp247eoh/image/upload/e_trim/v1792237576/shinelux_logo_transparent_kvmcqy.png"
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
