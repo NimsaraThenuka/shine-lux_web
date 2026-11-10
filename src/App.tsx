@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react"
 import { articles } from "./data/articles"
-import { services } from "./data/services"
 import AboutPage from "./pages/AboutPage"
 import ArticlePage from "./pages/ArticlePage"
 import BlogPage from "./pages/BlogPage"
 import ContactPage from "./pages/ContactPage"
 import HomePage from "./pages/HomePage"
-import ServicePage from "./pages/ServicePage"
 import ServicesPage from "./pages/ServicesPage"
 import WhyPage from "./pages/WhyPage"
 
@@ -19,21 +17,30 @@ export default function App() {
     return () => window.removeEventListener("popstate", update)
   }, [])
 
+  // Seamless redirect from any legacy service detail sub-routes to /services#slug
+  useEffect(() => {
+    if (path.startsWith("/services/") && path !== "/services") {
+      const slug = path.replace("/services/", "")
+      window.history.replaceState(null, "", `/services#${slug}`)
+      setPath("/services")
+    }
+  }, [path])
+
   useEffect(() => {
     let title = "Shine LUX | Professional Cleaning Services Across Australia"
     let description =
-      "Premium residential and commercial cleaning services across Australia. Regular home cleaning, end of lease, deep carpet steam cleaning, window, and builders cleans."
+      "Premium residential, commercial, and industrial cleaning services across Australia. Transparent pricing, police-vetted cleaners, and guaranteed quality."
     const baseUrl = "https://shinelux.com.au"
     const currentUrl = `${baseUrl}${path === "/" ? "" : path}`
 
     if (path === "/") {
       title = "Shine LUX | Professional Cleaning Services Across Australia"
       description =
-        "Premium residential and commercial cleaning services across Australia. Regular home cleaning, end of lease, deep carpet steam cleaning, window, and builders cleans."
-    } else if (path === "/services") {
+        "Premium residential, commercial, and industrial cleaning services across Australia. 13 specialised cleaning categories with upfront pricing."
+    } else if (path === "/services" || path.startsWith("/services")) {
       title = "Residential & Commercial Cleaning Services | Shine LUX"
       description =
-        "Explore our full suite of professional cleaning services across Australia. From routine home cleaning to end of lease and commercial maintenance."
+        "Explore our complete suite of 13 professional cleaning services across Australia. Upfront pricing from $90. Builders, commercial, residential, end of lease and more."
     } else if (path === "/about") {
       title = "About Shine LUX | Cleaning with Care & Integrity"
       description =
@@ -50,12 +57,6 @@ export default function App() {
       title = "Request a Free Cleaning Quote | Contact Shine LUX"
       description =
         "Get a quick, free, obligation-free quote for residential or commercial cleaning across Australia. Contact Shine LUX today."
-    } else if (path.startsWith("/services/")) {
-      const match = services.find((s) => `/services/${s.slug}` === path)
-      if (match) {
-        title = `${match.title} Services | Shine LUX Australia`
-        description = `${match.description} ${match.tagline}. Professional, insured cleaning across Australia.`
-      }
     } else if (path.startsWith("/blog/")) {
       const match = articles.find((a) => `/blog/${a.slug}` === path)
       if (match) {
@@ -94,21 +95,18 @@ export default function App() {
     }
     canonical.setAttribute("href", currentUrl)
 
-    // Scroll to top smoothly on route change
-    window.scrollTo({ top: 0, behavior: "instant" })
+    // Scroll to top smoothly on route change if not a hash link
+    if (!window.location.hash) {
+      window.scrollTo({ top: 0, behavior: "instant" })
+    }
   }, [path])
-
-  const service = path.startsWith("/services/")
-    ? services.find((s) => `/services/${s.slug}` === path)
-    : undefined
 
   const article = path.startsWith("/blog/")
     ? articles.find((a) => `/blog/${a.slug}` === path)
     : undefined
 
-  if (service) return <ServicePage service={service} />
   if (article) return <ArticlePage article={article} />
-  if (path === "/services") return <ServicesPage />
+  if (path === "/services" || path.startsWith("/services")) return <ServicesPage />
   if (path === "/about") return <AboutPage />
   if (path === "/why-choose-us") return <WhyPage />
   if (path === "/blog") return <BlogPage />

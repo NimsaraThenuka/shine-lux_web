@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react"
+import { FormEvent, useState, useRef, useEffect } from "react"
 import { images } from "../data/constants"
 import { services } from "../data/services"
 import Eyebrow from "../components/Eyebrow"
@@ -9,6 +9,36 @@ import Shell from "../components/Shell"
 
 export default function ContactPage() {
   const [sent, setSent] = useState(false)
+
+  const initialService =
+    typeof window !== "undefined"
+      ? new URLSearchParams(window.location.search).get("service")
+      : null
+
+  const matchedService = services.find((s) => s.slug === initialService)
+  const defaultServiceVal = matchedService ? matchedService.title : ""
+
+  const [selectedService, setSelectedService] = useState(defaultServiceVal)
+  const [serviceSelectOpen, setServiceSelectOpen] = useState(false)
+  const serviceSelectRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    setSelectedService(defaultServiceVal)
+  }, [defaultServiceVal])
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        serviceSelectRef.current &&
+        !serviceSelectRef.current.contains(e.target as Node)
+      ) {
+        setServiceSelectOpen(false)
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [])
+
   function submit(e: FormEvent) {
     e.preventDefault()
     setSent(true)
@@ -77,7 +107,7 @@ export default function ContactPage() {
             <>
               <div className="field-row">
                 <label>
-                  Full name
+                  Name
                   <input required name="name" placeholder="Your name" />
                 </label>
                 <label>
@@ -100,39 +130,83 @@ export default function ContactPage() {
                 />
               </label>
               <div className="field-row">
-                <label>
-                  Service type
-                  <select required defaultValue="">
-                    <option value="" disabled>
-                      Select a service
-                    </option>
-                    {services.map((s) => (
-                      <option key={s.slug}>{s.title}</option>
-                    ))}
-                  </select>
-                </label>
-                <label>
-                  Property type
-                  <select required defaultValue="">
-                    <option value="" disabled>
-                      Select property
-                    </option>
-                    <option>House</option>
-                    <option>Apartment</option>
-                    <option>Office</option>
-                    <option>School</option>
-                    <option>Commercial site</option>
-                  </select>
-                </label>
-              </div>
-              <div className="field-row">
+                <div className="custom-select-field">
+                  <span className="field-label">Service type</span>
+                  <div className="custom-select-wrap" ref={serviceSelectRef}>
+                    <input
+                      tabIndex={-1}
+                      className="visually-hidden-required"
+                      required
+                      name="service"
+                      value={selectedService}
+                      onChange={() => {}}
+                    />
+                    <button
+                      type="button"
+                      className={`custom-select-trigger ${
+                        serviceSelectOpen ? "is-open" : ""
+                      } ${selectedService ? "has-value" : ""}`}
+                      onClick={() => setServiceSelectOpen((prev) => !prev)}
+                      aria-haspopup="listbox"
+                      aria-expanded={serviceSelectOpen}
+                    >
+                      <span className="custom-select-text">
+                        {selectedService || "Select a service"}
+                      </span>
+                      <span
+                        className={`custom-select-chevron ${
+                          serviceSelectOpen ? "rotate" : ""
+                        }`}
+                      >
+                        <Icon name="chevron" size={14} />
+                      </span>
+                    </button>
+
+                    {serviceSelectOpen && (
+                      <div className="custom-select-dropdown" role="listbox">
+                        {services.map((s) => {
+                          const isSelected = selectedService === s.title
+                          return (
+                            <div
+                              key={s.slug}
+                              className={`custom-select-option ${
+                                isSelected ? "is-selected" : ""
+                              }`}
+                              role="option"
+                              aria-selected={isSelected}
+                              onClick={() => {
+                                setSelectedService(s.title)
+                                setServiceSelectOpen(false)
+                              }}
+                            >
+                              <span className="custom-option-title">
+                                {s.title}
+                              </span>
+                              {isSelected && (
+                                <span className="custom-option-check">
+                                  <Icon name="check" size={13} />
+                                </span>
+                              )}
+                            </div>
+                          )
+                        })}
+                      </div>
+                    )}
+                  </div>
+                </div>
                 <label>
                   Suburb / postcode
                   <input required name="suburb" placeholder="Your suburb" />
                 </label>
+              </div>
+              <div className="field-row">
                 <label>
                   Preferred date
                   <input name="date" type="date" />
+                </label>
+                <label>
+                  Preferred time
+                  <input name="time" type="time" />
                 </label>
               </div>
               <label>
@@ -144,8 +218,8 @@ export default function ContactPage() {
                 />
               </label>
               <label className="consent">
-                <input type="checkbox" required />I agree to be contacted about
-                this enquiry.
+                <input type="checkbox" required />
+                <span>I agree to be contacted about this enquiry.</span>
               </label>
               <button className="submit" type="submit">
                 Submit My Enquiry <Icon name="arrow" size={18} />

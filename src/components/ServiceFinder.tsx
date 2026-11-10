@@ -10,25 +10,25 @@ export default function ServiceFinder() {
       label: "Maintain my home",
       title: "A reliable rhythm for everyday life",
       text: "Regular cleaning helps keep recurring household tasks from building up around a busy schedule.",
-      service: services[1],
+      service: services[3],
     },
     {
       label: "Refresh my space",
       title: "Focused attention, exactly when needed",
       text: "A one-off clean is a practical choice before guests, after a busy period or for a seasonal reset.",
-      service: services[0],
+      service: services[6],
     },
     {
       label: "Prepare to move",
       title: "A clearer path to property handover",
       text: "End of lease cleaning is shaped around the property condition, timing and documented priorities.",
-      service: services[2],
+      service: services[4],
     },
     {
       label: "Care for a workplace",
       title: "A more welcoming professional environment",
       text: "Explore planned cleaning for offices, schools and other shared commercial spaces.",
-      service: services[3],
+      service: services[2],
     },
   ]
   const [selected, setSelected] = useState(0)
@@ -103,7 +103,7 @@ export default function ServiceFinder() {
             <small>Recommended starting point</small>
             <h3>{active.title}</h3>
             <p>{active.text}</p>
-            <Button to={`/services/${active.service.slug}`}>
+            <Button to={`/services#${active.service.slug}`}>
               Explore {active.service.title}
             </Button>
           </div>

@@ -1,5 +1,5 @@
+import { useEffect } from "react"
 import { images } from "../data/constants"
-import { services } from "../data/services"
 import AlternatingServices from "../components/AlternatingServices"
 import AssuranceBand from "../components/AssuranceBand"
 import Closing from "../components/Closing"
@@ -11,12 +11,25 @@ import Process from "../components/Process"
 import Shell from "../components/Shell"
 
 export default function ServicesPage() {
+  useEffect(() => {
+    const hash = window.location.hash
+    if (hash) {
+      const timer = setTimeout(() => {
+        const target = document.querySelector(hash)
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" })
+        }
+      }, 150)
+      return () => clearTimeout(timer)
+    }
+  }, [])
+
   return (
     <Shell>
       <PageHero
         eyebrow="Our cleaning services"
         title="Cleaning Solutions for Homes, Workplaces and Everything In Between"
-        text="Explore a flexible range of residential and commercial cleaning services. Every enquiry begins with understanding your property, preferred timing and priorities."
+        text="Explore our complete range of 13 specialised residential, commercial, and industrial cleaning services across Australia. Transparent pricing with no hidden fees."
         image={images.kitchen}
       />
       <AssuranceBand />

@@ -1,4 +1,29 @@
-export type IconName = "home" | "calendar" | "key" | "building" | "layers" | "window" | "hammer" | "school" | "check" | "arrow" | "phone" | "mail" | "pin" | "clock" | "menu" | "close" | "star" | "shield" | "leaf" | "award" | "user"
+export type IconName =
+  | "home"
+  | "calendar"
+  | "key"
+  | "building"
+  | "layers"
+  | "window"
+  | "hammer"
+  | "school"
+  | "check"
+  | "arrow"
+  | "phone"
+  | "mail"
+  | "pin"
+  | "clock"
+  | "menu"
+  | "close"
+  | "star"
+  | "shield"
+  | "leaf"
+  | "award"
+  | "user"
+  | "sparkles"
+  | "heart"
+  | "sun"
+  | "chevron"
 
 export type IconProps = {
   name: IconName
@@ -8,13 +33,16 @@ export type IconProps = {
 export type Service = {
   slug: string
   title: string
+  price: string
   icon: IconName
   tagline: string
   description: string
-  ideal: string[]
-  scope: string[]
-  planning: string
-  closing: string
+  inclusions: string[]
+  category?: string
+  ideal?: string[]
+  scope?: string[]
+  planning?: string
+  closing?: string
   image: string
 }
 

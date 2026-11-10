@@ -129,20 +129,23 @@ export default function HomePage() {
             </h2>
           </div>
           <p>
-            Eight specialised cleaning categories, each designed around a
-            distinct need.
+            Thirteen specialised cleaning categories, each designed around a
+            distinct need with transparent pricing.
           </p>
         </div>
         <div className="service-grid visual">
           {services.map((service, i) => (
             <Link
               key={service.slug}
-              to={`/services/${service.slug}`}
+              to={`/services#${service.slug}`}
               className="service-card reveal-item"
             >
               <div className="service-card-image">
                 <img src={service.image} alt={service.title} loading="lazy" />
-                <span className="service-number-badge">0{i + 1}</span>
+                <span className="service-number-badge">
+                  {i + 1 < 10 ? `0${i + 1}` : `${i + 1}`}
+                </span>
+                <span className="service-price-chip">{service.price}</span>
               </div>
               <span className="icon-box">
                 <Icon name={service.icon} />
@@ -150,7 +153,7 @@ export default function HomePage() {
               <h3>{service.title}</h3>
               <p>{service.description}</p>
               <span className="text-link">
-                Explore service <Icon name="arrow" size={17} />
+                View service & pricing <Icon name="arrow" size={17} />
               </span>
             </Link>
           ))}
@@ -227,7 +230,7 @@ export default function HomePage() {
             and mop. The right cleaning solution starts with your priorities and
             gives you more room for everything else.
           </p>
-          <Button to="/services/regular-cleaning" light>
+          <Button to="/services#residential-house-cleaning" light>
             Ask About Regular Cleaning
           </Button>
         </div>
