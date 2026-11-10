@@ -149,27 +149,39 @@ export default function Header() {
               Services
             </Link>
 
-            {/* Mobile Trigger Button (Toggles normal sub-menu dropdown on mobile) */}
-            <button
-              type="button"
-              className={`nav-link mobile-services-trigger ${
+            {/* Mobile Services Row (Services link navigates to page, Chevron toggles dropdown) */}
+            <div
+              className={`nav-link mobile-services-row ${
                 isServices ? "active" : ""
               } ${mobileServicesOpen ? "is-open" : ""}`}
-              onClick={(e) => {
-                e.stopPropagation()
-                setMobileServicesOpen((prev) => !prev)
-              }}
-              aria-expanded={mobileServicesOpen}
             >
-              <span>Services</span>
-              <span
-                className={`mobile-chevron-wrap ${
-                  mobileServicesOpen ? "rotate" : ""
-                }`}
+              <Link
+                to="/services"
+                className="mobile-services-link-text"
+                onClick={closeDrawer}
               >
-                <Icon name="chevron" size={16} />
-              </span>
-            </button>
+                Services
+              </Link>
+              <button
+                type="button"
+                className="mobile-services-chevron-btn"
+                onClick={(e) => {
+                  e.preventDefault()
+                  e.stopPropagation()
+                  setMobileServicesOpen((prev) => !prev)
+                }}
+                aria-label="Toggle Services menu"
+                aria-expanded={mobileServicesOpen}
+              >
+                <span
+                  className={`mobile-chevron-wrap ${
+                    mobileServicesOpen ? "rotate" : ""
+                  }`}
+                >
+                  <Icon name="chevron" size={16} />
+                </span>
+              </button>
+            </div>
 
             {/* Desktop Mega Dropdown (Hover-based) */}
             <div className="dropdown">
