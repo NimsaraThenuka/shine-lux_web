@@ -28,8 +28,8 @@ export default function ServicesPage() {
     <Shell>
       <PageHero
         eyebrow="Our cleaning services"
-        title="Cleaning Solutions for Homes, Workplaces and Everything In Between"
-        text="Explore our complete range of 13 specialised residential, commercial, and industrial cleaning services across Australia. Transparent pricing with no hidden fees."
+        title="Cleaning Solutions for For Residential , Workplaces. and Everything In Between"
+        text="Explore our complete range of 15 specialised residential, commercial, and industrial cleaning services across Australia. Transparent pricing with no hidden fees."
         image={images.kitchen}
       />
       <AssuranceBand />

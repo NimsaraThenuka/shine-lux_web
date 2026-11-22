@@ -30,7 +30,7 @@ const marqueeItems: MarqueeItem[] = [
   },
   {
     icon: "star",
-    title: "5-Star Rated Across Australia",
+    title: "5 Star Rated Across Australia",
     highlight: "500+ Happy Clients",
   },
   {
@@ -42,7 +42,7 @@ const marqueeItems: MarqueeItem[] = [
 
 export default function TrustMarquee() {
   return (
-    <section className="trust-marquee-section" aria-label="Why Choose Shine LUX">
+    <section className="trust-marquee-section" aria-label="Why Choose ShineLux">
       <div className="trust-marquee-track">
         <div className="trust-marquee-group">
           {marqueeItems.map((item, idx) => (

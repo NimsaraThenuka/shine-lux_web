@@ -46,7 +46,7 @@ export default function ContactPage() {
   return (
     <Shell>
       <PageHero
-        eyebrow="Contact Shine LUX"
+        eyebrow="Contact ShineLux"
         title="Let’s Make Your Space Shine"
         text="Tell us what you need, where the property is located and when you would like the service. We will use those details to discuss the next steps."
         image={images.contact}
@@ -65,13 +65,15 @@ export default function ContactPage() {
             <div>
               <Icon name="phone" />
               <span>
-                <small>Call us</small>Phone confirmed during enquiry
+                <small>Call us</small>
+                <a href="tel:0435920515">0435 920 515</a>
               </span>
             </div>
             <div>
               <Icon name="mail" />
               <span>
-                <small>Email us</small>Use the enquiry form
+                <small>Email us</small>
+                <a href="mailto:info@shinelux.com.au">info@shinelux.com.au</a>
               </span>
             </div>
             <div>
@@ -94,7 +96,7 @@ export default function ContactPage() {
               <span className="icon-box">
                 <Icon name="check" />
               </span>
-              <h3>Thanks for reaching out to Shine LUX.</h3>
+              <h3>Thanks for reaching out to ShineLux.</h3>
               <p>
                 Your enquiry has been received. We will review the details and
                 respond using the contact information you provided.

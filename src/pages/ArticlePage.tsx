@@ -36,10 +36,10 @@ export default function ArticlePage({ article }: { article: Article }) {
           <div className="article-cta">
             <h3>Would a professional clean make life easier?</h3>
             <p>
-              Tell Shine LUX about your space and the priorities you would like
+              Tell ShineLux about your space and the priorities you would like
               to hand over.
             </p>
-            <Button to="/contact">Ask Shine LUX</Button>
+            <Button to="/contact">Ask ShineLux</Button>
           </div>
         </div>
       </article>

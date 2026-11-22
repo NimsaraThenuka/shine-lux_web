@@ -37,7 +37,7 @@ export default function WhyPage() {
   return (
     <Shell>
       <PageHero
-        eyebrow="The Shine LUX difference"
+        eyebrow="The ShineLux difference"
         title="A More Considered Way to Clean"
         text="Choosing a cleaning provider is about feeling comfortable with the process, understanding what is included and knowing your priorities have been heard."
         image={images.why}
@@ -63,9 +63,9 @@ export default function WhyPage() {
           <h2>A Service Experience Designed Around Clarity</h2>
         </div>
         <p>
-          Shine LUX differentiates through clear service descriptions, visible
+          ShineLux differentiates through clear service descriptions, visible
           inclusions, practical FAQs, helpful enquiry forms and consistent
-          presentation—so customers can make informed decisions.
+          presentation, so customers can make informed decisions.
         </p>
       </section>
       <Closing />

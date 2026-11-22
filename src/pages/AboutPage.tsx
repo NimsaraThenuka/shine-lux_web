@@ -20,9 +20,9 @@ export default function AboutPage() {
   return (
     <Shell>
       <PageHero
-        eyebrow="The story behind Shine LUX"
+        eyebrow="The story behind ShineLux"
         title="Cleaning with Care. Spaces with Character."
-        text="Shine LUX is built around a simple belief: clean spaces make room for better days."
+        text="ShineLux is built around a simple belief: clean spaces make room for better days."
         image={images.detail}
       />
       <section className="split-feature section">
@@ -35,10 +35,10 @@ export default function AboutPage() {
             The Difference Is in <em>the Details</em>
           </h2>
           <p>
-            A welcoming home is more than a spotless countertop. It is the
-            feeling of walking into a room that has been cared for. Shine LUX
-            exists to make these everyday experiences easier through clear
-            service conversations and practical cleaning solutions.
+            A welcoming space is more than just a spotless surface;
+            it's the feeling of freshness, comfort and care. At <strong>ShineLux</strong>,
+            we make everyday living and working easier with professional cleaning services,
+            personalised solutions and reliable service you can trust. We take pride in making every space shine.
           </p>
           <Button to="/contact">Talk to Our Team</Button>
         </div>
@@ -51,17 +51,16 @@ export default function AboutPage() {
           <Eyebrow>What drives us</Eyebrow>
           <h2>Our Mission</h2>
           <p>
-            To help Australian households and organisations enjoy cleaner, more
-            comfortable spaces through thoughtfully planned cleaning services
-            and clear communication.
+            To make every space shine by delivering reliable,
+            professional and consistently exceptional cleaning services.
           </p>
         </div>
         <div>
           <Eyebrow>Looking ahead</Eyebrow>
           <h2>Our Vision</h2>
           <p>
-            To become a trusted choice for people who value a polished space,
-            respectful service and a simple cleaning experience.
+            To set a new standard in cleaning through quality,
+            care and excellence.
           </p>
         </div>
       </section>

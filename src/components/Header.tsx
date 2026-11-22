@@ -97,6 +97,7 @@ export default function Header() {
   const isBlogDetail =
     currentPath.startsWith("/blog/") && currentPath !== "/blog"
   const isContact = currentPath === "/contact"
+  const isBook = currentPath === "/book" || currentPath === "/booking"
 
   const backTarget = isBlogDetail ? "/blog" : null
   const backLabelShort = "Articles"
@@ -110,7 +111,7 @@ export default function Header() {
       <header className="header" ref={headerRef}>
         <div className="header-left">
           <Link to="/" className="logo-link" onClick={closeDrawer}>
-            <img src={LOGO} alt="Shine LUX" />
+            <img src={LOGO} alt="ShineLux" />
           </Link>
         </div>
 
@@ -269,19 +270,36 @@ export default function Header() {
           >
             Contact
           </Link>
-          <Button
-            to="/contact"
-            className="mobile-drawer-quote-btn"
-            onClick={closeDrawer}
-          >
-            Get a Free Quote
-          </Button>
+          <div className="mobile-drawer-cta-group">
+            <Link
+              to="/book"
+              className="mobile-drawer-book-btn"
+              onClick={closeDrawer}
+            >
+              <Icon name="calendar" size={16} />
+              <span>Book Now</span>
+            </Link>
+            <Button
+              to="/contact"
+              className="mobile-drawer-quote-btn"
+              onClick={closeDrawer}
+            >
+              Get a Free Quote
+            </Button>
+          </div>
         </nav>
 
         <div className="header-right">
           <Button to="/contact" className="desktop-header-quote-btn">
             Get a Free Quote
           </Button>
+          <Link
+            to="/book"
+            className={`desktop-header-book-btn ${isBook ? "active" : ""}`}
+          >
+            <Icon name="calendar" size={13} />
+            <span>Book Now</span>
+          </Link>
           <div className="header-actions">
             {backTarget && (
               <Link

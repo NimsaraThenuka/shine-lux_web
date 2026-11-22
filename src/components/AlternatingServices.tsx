@@ -112,7 +112,7 @@ export default function AlternatingServices() {
               {/* Right Column: Clean Editorial Content */}
               <div className="editorial-content-wrap">
                 <span className="editorial-kicker">
-                  Shine LUX • Service {numberFormatted}
+                  ShineLux • Service {numberFormatted}
                 </span>
 
                 <h3 className="editorial-title">{service.title}</h3>
@@ -131,14 +131,23 @@ export default function AlternatingServices() {
                   ))}
                 </div>
 
-                {/* Action Row: Pill Button + Trust Note */}
+                {/* Action Row: Pill Button + In-Depth Details Button + Trust Note */}
                 <div className="editorial-action-row">
-                  <Button
-                    to={`/contact?service=${service.slug}`}
-                    className="editorial-book-btn"
-                  >
-                    Book This Service
-                  </Button>
+                  <div className="editorial-btn-group">
+                    <Button
+                      to={`/contact?service=${service.slug}`}
+                      className="editorial-book-btn"
+                    >
+                      Book This Service
+                    </Button>
+                    <Button
+                      to={`/services/${service.slug}`}
+                      outline
+                      className="editorial-detail-btn"
+                    >
+                      <span>View More</span>
+                    </Button>
+                  </div>
                   <div className="editorial-trust-tag">
                     <Icon name="shield" size={15} />
                     <span>100% Insured & Police Vetted</span>

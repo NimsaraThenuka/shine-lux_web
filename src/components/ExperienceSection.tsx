@@ -24,7 +24,7 @@ export default function ExperienceSection() {
           alt="Bright modern kitchen prepared with care"
         />
         <div className="experience-caption">
-          <span>Shine LUX principle</span>
+          <span>ShineLux principle</span>
           <strong>Clarity before cleaning.</strong>
         </div>
       </div>

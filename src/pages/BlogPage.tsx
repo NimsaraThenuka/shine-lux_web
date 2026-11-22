@@ -11,7 +11,7 @@ export default function BlogPage() {
   return (
     <Shell>
       <PageHero
-        eyebrow="The Shine LUX journal"
+        eyebrow="The ShineLux journal"
         title="Fresh Ideas for Cleaner, More Comfortable Spaces"
         text="Practical advice for home care, moving preparation, workplace upkeep and the habits that make everyday cleaning easier."
         image={images.calm}

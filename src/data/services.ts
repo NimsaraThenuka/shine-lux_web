@@ -12,16 +12,14 @@ export const services: Service[] = [
     description:
       "Heavy-duty handover cleaning removing fine plaster dust, paint residue, and builder debris for new builds and renovations.",
     inclusions: [
-      "Plaster Dust & Paint Removal",
-      "Window Tracks & Glass Detailing",
-      "Cabinetry Interior & Exterior",
-      "Hard Floor Scrubbing & Buffing",
+      "White Card Certified Staff",
+      "Compliance with Safety Standards",
+      "Rough, Final & Touch-up Cleans",
     ],
     scope: [
-      "Plaster Dust & Paint Removal",
-      "Window Tracks & Glass Detailing",
-      "Cabinetry Interior & Exterior",
-      "Hard Floor Scrubbing & Buffing",
+      "White Card Certified Staff",
+      "Compliance with Safety Standards",
+      "Rough, Final & Touch-up Cleans",
     ],
     image:
       "https://res.cloudinary.com/dyp247eoh/image/upload/v1794283737/janitor-using-industrial-vacuum-clean-up-debris-dust-from-renovation-process_216520-103638_jmzxyg.jpg",
@@ -111,12 +109,14 @@ export const services: Service[] = [
       "Inside & Outside All Cupboards",
       "Bathroom Descaling & Grout Scrub",
       "Skirting Boards, Tracks & Floors",
+      "Optional carpet steam and add-ons quoted clearly",
     ],
     scope: [
       "Oven & Rangehood Degreasing",
       "Inside & Outside All Cupboards",
       "Bathroom Descaling & Grout Scrub",
       "Skirting Boards, Tracks & Floors",
+      "Optional carpet steam and add-ons quoted clearly",
     ],
     image:
       "https://res.cloudinary.com/dyp247eoh/image/upload/v1792395626/african-american-man-vacuuming-floors-living-room-cleaning-apartment-with-girlfriend-young-adult-using-vacuum-cleaner-woman-wiping-shelves-with-all-purpose-cleaner-tripod-shot_prxmp6.jpg",
@@ -131,19 +131,19 @@ export const services: Service[] = [
     description:
       "Scheduled deep-cleaning sessions targeting cumulative grime, seasonal refreshes, and rotating high-detail maintenance tasks.",
     inclusions: [
-      "Deep Grout & Splashback Scrub",
-      "Ceiling Fans & High Vent Dusting",
-      "Appliance Exterior & Detailing",
-      "Door Frames & Architraves",
+      "Deep Cleaning of Floors, Walls & Surfaces",
+      "Detailed Kitchen, Lunchroom & Washroom Care",
+      "High-Level Dusting, Vents & Cobweb Removal",
+      "Window, Glass Partition & Carpet Cleaning",
     ],
     scope: [
-      "Deep Grout & Splashback Scrub",
-      "Ceiling Fans & High Vent Dusting",
-      "Appliance Exterior & Detailing",
-      "Door Frames & Architraves",
+      "Deep Cleaning of Floors, Walls & Surfaces",
+      "Detailed Kitchen, Lunchroom & Washroom Care",
+      "High-Level Dusting, Vents & Cobweb Removal",
+      "Window, Glass Partition & Carpet Cleaning",
     ],
     image:
-      "https://res.cloudinary.com/dyp247eoh/image/upload/v1794283950/woman-is-cleaning-floor-with-broom_875765-4615_khtqqg.jpg",
+      "https://res.cloudinary.com/dyp247eoh/image/upload/v1795317519/WhatsApp_Image_2026-11-10_at_11.16.24_AM_gntiji.jpg",
   },
   {
     slug: "once-off-cleaning",
@@ -180,12 +180,14 @@ export const services: Service[] = [
       "Streak-free interior and exterior glass cleaning removing fingerprints, hard water mineral deposits, and everyday environmental grime.",
     inclusions: [
       "Interior & Exterior Glass Clean",
+      "High-Rise & Multi-Storey Window Cleaning",
       "Flyscreen Dusting & Washing",
       "Window Tracks & Sills Detailing",
       "Sliding Doors & Glass Balconies",
     ],
     scope: [
       "Interior & Exterior Glass Clean",
+      "High-Rise & Multi-Storey Window Cleaning",
       "Flyscreen Dusting & Washing",
       "Window Tracks & Sills Detailing",
       "Sliding Doors & Glass Balconies",
@@ -240,6 +242,67 @@ export const services: Service[] = [
     ],
     image:
       "https://res.cloudinary.com/dyp247eoh/image/upload/v1794284131/hospital-cleaner-walking-down-hallway-with-equipment_255669-4950_xtacwd.jpg",
+  },
+  {
+    slug: "hotel-restaurant-kitchen-cleaning",
+    title: "Hotel / Restaurant & Kitchen cleaning",
+    price: "from $120",
+    category: "Commercial & Industrial",
+    icon: "utensils",
+    tagline: "Hospitality & Commercial Kitchen Hygiene",
+    description:
+      "We provide professional hotel, restaurant, bistro and commercial kitchen cleaning services to maintain a clean, hygienic and welcoming environment for guests, customers and staff. Our team delivers thorough cleaning solutions, focusing on removing grease, grime, food residue and dirt while maintaining high standards of cleanliness and hygiene.",
+    shortDescription:
+      "Professional commercial kitchen deep cleaning, degreasing, and dining area sanitisation maintaining strict hospitality hygiene standards.",
+    inclusions: [
+      "Restaurant & Bistro Cleaning",
+      "Hotel & Reception Area Cleaning",
+      "Commercial Kitchen Deep Cleaning",
+      "Gaming Area Cleaning",
+      "Function Hall Cleaning",
+    ],
+    scope: [
+      "Restaurant & Bistro Cleaning: Dining areas, seating, tables and floor sanitisation",
+      "Hotel & Reception Area Cleaning: Welcoming foyers, lobbies and check-in desks",
+      "Commercial Kitchen Deep Cleaning: Degreasing, ovens, range hoods and food prep stations",
+      "Gaming Area Cleaning: Thorough sanitisation of gaming lounges and high-touch surfaces",
+      "Function Hall Cleaning: Event spaces, banquet halls and post-event turnaround",
+    ],
+    image:
+      "https://res.cloudinary.com/dyp247eoh/image/upload/v1795329411/a2c1f98306da43689a43d1736548e832_za1zet.webp",
+  },
+  {
+    slug: "gym-cleaning",
+    title: "Gym Cleaning",
+    price: "from $160",
+    category: "Commercial & Industrial",
+    icon: "dumbbell",
+    tagline: "Clean, Hygienic & Fresh Fitness Environments",
+    description:
+      "We provide professional gym cleaning services to ensure a clean, hygienic and fresh environment for your members and staff. Our team focuses on maintaining high hygiene standards by thoroughly cleaning and sanitising gym equipment, floors, change rooms, showers and common areas.",
+    shortDescription:
+      "Thorough sanitisation for gym equipment, workout floors, change rooms, and showers ensuring a clean, fresh member environment.",
+    inclusions: [
+      "Gym Equipment Cleaning",
+      "Floor Cleaning ",
+      "Sanitisation of High-Touch Areas",
+      "Change Room & Shower Cleaning",
+      "Mirror & Glass Cleaning",
+      "Rubbish Removal & Reception Care",
+    ],
+    scope: [
+      "Gym Equipment Cleaning: Treadmills, weights, exercise machines and fitness equipment",
+      "Floor Cleaning: Sweeping, vacuuming, mopping and disinfecting gym floors",
+      "Sanitisation of High-Touch Areas: Door handles, switches, railings and shared surfaces",
+      "Change Room Cleaning: Thorough cleaning and sanitising of lockers and changing areas",
+      "Shower & Bathroom Cleaning: Toilets, showers, basins, mirrors, tiles and taps",
+      "Mirror & Glass Cleaning: Removing fingerprints, marks and smudges from glass surfaces",
+      "Dusting & Wiping: Shelves, equipment, skirting boards and other surfaces",
+      "Rubbish Removal: Emptying bins, replacing bin liners and keeping waste areas clean",
+      "Reception & Common Area Cleaning: Maintaining clean reception desks and shared spaces",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=85",
   },
   {
     slug: "aged-care-cleaning",

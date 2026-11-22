@@ -2,6 +2,7 @@ import { images } from "../data/constants"
 import { services } from "../data/services"
 import AssuranceBand from "../components/AssuranceBand"
 import Closing from "../components/Closing"
+import CommitmentSection from "../components/CommitmentSection"
 import ExperienceSection from "../components/ExperienceSection"
 import Eyebrow from "../components/Eyebrow"
 import Faq from "../components/Faq"
@@ -28,7 +29,7 @@ export default function HomePage() {
                 as="span"
                 text={[
                   "Trusted Across Australia.",
-                  "For Homes & Workplaces.",
+                  "For Residential & Workplaces.",
                   "Care You Can Count On.",
                 ]}
                 typingSpeed={65}
@@ -44,10 +45,18 @@ export default function HomePage() {
             </span>
           </h1>
           <p>
-            Thoughtful cleaning solutions designed for Australian homes,
-            apartments and workplaces. From routine housekeeping to end of lease
-            bond cleans, we deliver dependable, insured and high-standard care.
+            At <strong>ShineLux</strong>, we provide reliable,
+            professional cleaning services for residential and commercial properties. We deliver exceptional results with care and attention to detail.
+
           </p>
+          <div className="hero-cta-prompt">
+            <span className="hero-cta-sparkle">
+              <Icon name="sparkles" size={16} />
+            </span>
+            <span className="hero-cta-text">
+              Let Your Space Shine with <strong>ShineLux</strong>
+            </span>
+          </div>
           <div className="actions">
             <Button to="/contact">Get a Free Quote</Button>
             <Button to="/services" outline>
@@ -66,6 +75,14 @@ export default function HomePage() {
             <span>
               <Icon name="check" size={18} />
               Fully Vetted & Insured Cleaners
+            </span>
+            <span>
+              <Icon name="check" size={18} />
+              Eco-Friendly Products
+            </span>
+            <span>
+              <Icon name="check" size={18} />
+              Same Day Booking Available
             </span>
           </div>
         </div>
@@ -92,6 +109,14 @@ export default function HomePage() {
             <Icon name="check" size={18} />
             Fully Vetted & Insured Cleaners
           </span>
+          <span>
+            <Icon name="check" size={18} />
+            Eco-Friendly Products
+          </span>
+          <span>
+            <Icon name="check" size={18} />
+            Same Day Booking Available
+          </span>
         </div>
       </section>
 
@@ -111,12 +136,14 @@ export default function HomePage() {
             explore a practical solution that fits.
           </p>
           <Button to="/about" outline>
-            Discover Shine LUX
+            Discover ShineLux
           </Button>
         </div>
       </section>
 
       <StatsCounter />
+
+      <CommitmentSection />
 
       <ServiceFinder />
 
@@ -129,7 +156,7 @@ export default function HomePage() {
             </h2>
           </div>
           <p>
-            Thirteen specialised cleaning categories, each designed around a
+            Fifteen specialised cleaning categories, each designed around a
             distinct need with transparent pricing.
           </p>
         </div>
@@ -151,7 +178,7 @@ export default function HomePage() {
                 <Icon name={service.icon} />
               </span>
               <h3>{service.title}</h3>
-              <p>{service.description}</p>
+              <p>{service.shortDescription || service.description}</p>
               <span className="text-link">
                 View service & pricing <Icon name="arrow" size={17} />
               </span>

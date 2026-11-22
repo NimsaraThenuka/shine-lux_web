@@ -24,6 +24,9 @@ export type IconName =
   | "heart"
   | "sun"
   | "chevron"
+  | "dumbbell"
+  | "utensils"
+  | "whatsapp"
 
 export type IconProps = {
   name: IconName
@@ -37,6 +40,7 @@ export type Service = {
   icon: IconName
   tagline: string
   description: string
+  shortDescription?: string
   inclusions: string[]
   category?: string
   ideal?: string[]

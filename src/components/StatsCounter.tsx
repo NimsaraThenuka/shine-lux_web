@@ -9,7 +9,7 @@ interface StatItem {
 
 const stats: StatItem[] = [
   { target: 500, suffix: "+", label: "Happy Clients" },
-  { target: 10, suffix: "+", label: "Years of Industry Experience" },
+  { target: 500, suffix: "+", label: "5 Star Reviews" },
   { target: 100, suffix: "%", label: "Satisfaction Rate" },
   { target: 7, suffix: " Days", label: "A Week Service" },
 ]

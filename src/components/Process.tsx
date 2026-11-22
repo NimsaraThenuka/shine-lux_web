@@ -65,7 +65,7 @@ export default function Process({ withTeam = false }: { withTeam?: boolean }) {
 
               <img
                 src="/images/australian-cleaning-team.png"
-                alt="Professional Shine LUX Australian Cleaning Team"
+                alt="Professional ShineLux Australian Cleaning Team"
                 className="process-team-image"
                 loading="lazy"
               />

@@ -22,7 +22,7 @@ const reviews: Review[] = [
     service: "End of Lease Clean",
     rating: 5,
     tag: "Bond Refunded",
-    text: "Booked Shine LUX for our 3-bedroom townhouse bond clean in South Yarra. The real estate agent was blown away by the oven and bathroom tiles. 100% full bond refund received with zero disputes.",
+    text: "Booked ShineLux for our 3-bedroom townhouse bond clean in South Yarra. The real estate agent was blown away by the oven and bathroom tiles. 100% full bond refund received with zero disputes.",
     initials: "SJ",
   },
   {
@@ -32,7 +32,7 @@ const reviews: Review[] = [
     service: "Regular Fortnightly Clean",
     rating: 5,
     tag: "Recurring Client",
-    text: "Having Shine LUX come fortnightly has been a lifesaver with two young kids and full-time jobs. Always punctual, thorough, and careful with our timber floors. Coming home on cleaning days is the best feeling.",
+    text: "Having ShineLux come fortnightly has been a lifesaver with two young kids and full-time jobs. Always punctual, thorough, and careful with our timber floors. Coming home on cleaning days is the best feeling.",
     initials: "DT",
   },
   {
@@ -73,7 +73,7 @@ const reviews: Review[] = [
     service: "Builders Cleaning",
     rating: 5,
     tag: "New Handover",
-    text: "Post-renovation fine dust was everywhere across our new extension. Shine LUX meticulously cleared every surface, cabinetry interior, and glass panel before our handover. Flawless execution.",
+    text: "Post-renovation fine dust was everywhere across our new extension. ShineLux meticulously cleared every surface, cabinetry interior, and glass panel before our handover. Flawless execution.",
     initials: "RZ",
   },
   // Slide 3
@@ -104,7 +104,7 @@ const reviews: Review[] = [
     service: "Apartment Handover Clean",
     rating: 5,
     tag: "Deposit Returned",
-    text: "Needed an urgent turnaround on an apartment handover on short notice. The Shine LUX team was accommodating, highly communicative, and left the place spotless. Got my full deposit back without hassle.",
+    text: "Needed an urgent turnaround on an apartment handover on short notice. The ShineLux team was accommodating, highly communicative, and left the place spotless. Got my full deposit back without hassle.",
     initials: "DM",
   },
 ]
@@ -202,7 +202,7 @@ export default function ReviewsSection() {
           </h2>
           <p>
             Real feedback from homeowners, tenants, and business managers
-            experiencing the Shine LUX standard.
+            experiencing the ShineLux standard.
           </p>
         </div>
 

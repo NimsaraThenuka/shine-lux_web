@@ -4,7 +4,7 @@ export default function Faq() {
   const items = [
     [
       "Do you offer once-off and recurring services?",
-      "Yes. Both are part of the Shine LUX range, with available scheduling confirmed during enquiry.",
+      "Yes. Both are part of the ShineLux range, with available scheduling confirmed during enquiry.",
     ],
     [
       "Can I request particular rooms or tasks?",
@@ -21,6 +21,18 @@ export default function Faq() {
     [
       "Do I need to supply products?",
       "Equipment and product arrangements should be confirmed when requesting your quote.",
+    ],
+    [
+      "Are your products safe for staff and visitors?",
+      "Yes. We use effective, responsibly chosen products and can align with your site's chemical policies or green requirements.",
+    ],
+    [
+      "How do I book?",
+      "Call 0435920515 or use our contact form. We'll propose facility.",
+    ],
+    [
+      "Do I need to be on site?",
+      "Not necessarily. Many clients provide after-hours access. We're insured and follow your security protocols.",
     ],
   ]
   return (
