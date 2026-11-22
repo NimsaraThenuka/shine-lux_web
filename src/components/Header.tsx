@@ -123,7 +123,7 @@ export default function Header() {
           style={
             open
               ? {
-                  top: `${headerBottom}px`,
+                  top: "100%",
                   height: `calc(100dvh - ${headerBottom}px)`,
                   overflowY: mobileServicesOpen ? "auto" : "hidden",
                   touchAction: mobileServicesOpen ? "pan-y" : "none",
