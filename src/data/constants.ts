@@ -1,5 +1,5 @@
 export const LOGO =
-  "https://res.cloudinary.com/dyp247eoh/image/upload/e_trim/v1792237576/shinelux_logo_transparent_kvmcqy.png"
+  "https://res.cloudinary.com/dyp247eoh/image/upload/e_trim/v1795418194/ShineLux_Logo-01_utkckn.png"
 
 export const images = {
   hero: "https://images.unsplash.com/photo-1758273238415-01ec03d9ef27?auto=format&fit=crop&w=1600&q=85",
