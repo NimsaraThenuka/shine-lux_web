@@ -1,7 +1,8 @@
 import { Service } from "../types"
 import { images } from "./constants"
+import { getOptimizedImageUrl } from "../utils/imageOptimizer"
 
-export const services: Service[] = [
+const rawServices: Service[] = [
   {
     slug: "builders-post-construction-cleaning",
     title: "Builders/ Post - Construction Cleaning",
@@ -377,3 +378,8 @@ export const services: Service[] = [
       "https://res.cloudinary.com/dyp247eoh/image/upload/v1794284606/Untitled-design-2026-06-18T175232.763-1024x585_b43ujz.webp",
   },
 ]
+
+export const services: Service[] = rawServices.map((s) => ({
+  ...s,
+  image: getOptimizedImageUrl(s.image, 800),
+}))

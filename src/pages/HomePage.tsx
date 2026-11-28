@@ -1,5 +1,6 @@
 import { images } from "../data/constants"
 import { services } from "../data/services"
+import { getOptimizedImageUrl } from "../utils/imageOptimizer"
 import AssuranceBand from "../components/AssuranceBand"
 import Closing from "../components/Closing"
 import CommitmentSection from "../components/CommitmentSection"
@@ -168,7 +169,14 @@ export default function HomePage() {
               className="service-card reveal-item"
             >
               <div className="service-card-image">
-                <img src={service.image} alt={service.title} loading="lazy" />
+                <img
+                  src={getOptimizedImageUrl(service.image, 600)}
+                  alt={service.title}
+                  loading={i < 4 ? "eager" : "lazy"}
+                  decoding="async"
+                  width="400"
+                  height="185"
+                />
                 <span className="service-number-badge">
                   {i + 1 < 10 ? `0${i + 1}` : `${i + 1}`}
                 </span>
