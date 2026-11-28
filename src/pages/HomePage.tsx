@@ -172,7 +172,11 @@ export default function HomePage() {
                 <span className="service-number-badge">
                   {i + 1 < 10 ? `0${i + 1}` : `${i + 1}`}
                 </span>
-                <span className="service-price-chip">{service.price}</span>
+                <span className="service-price-chip">
+                  {service.price.toLowerCase().startsWith("from")
+                    ? `From $${service.price.replace(/[^0-9]/g, "")}`
+                    : `From ${service.price}`}
+                </span>
               </div>
               <span className="icon-box">
                 <Icon name={service.icon} />

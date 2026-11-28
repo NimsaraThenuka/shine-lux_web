@@ -105,7 +105,7 @@ export default function AlternatingServices() {
 
                 {/* Bottom-Left: White Pill Price Badge (Matches User Reference Image) */}
                 <div className="editorial-price-pill">
-                  <span>{service.price.toLowerCase().startsWith("from") ? service.price : `From ${service.price}`}</span>
+                  <span>{service.price.toLowerCase().startsWith("from") ? `From $${service.price.replace(/[^0-9]/g, "")}` : `From ${service.price}`}</span>
                 </div>
               </div>
 

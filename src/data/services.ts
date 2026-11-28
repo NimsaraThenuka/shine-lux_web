@@ -74,7 +74,7 @@ export const services: Service[] = [
   {
     slug: "residential-house-cleaning",
     title: "Residential/ House Cleaning",
-    price: "$150",
+    price: "from $90",
     category: "Residential & Domestic",
     icon: "home",
     tagline: "The Comfort of a Consistently Cared-For Home",

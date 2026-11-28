@@ -369,7 +369,7 @@ export default function ServiceDetailPage({ detail }: ServiceDetailPageProps) {
                       loading="lazy"
                     />
                     <div className="detail-more-img-badge">
-                      <span>{s.price}</span>
+                      <span>{s.price.toLowerCase().startsWith("from") ? `From $${s.price.replace(/[^0-9]/g, "")}` : `From ${s.price}`}</span>
                     </div>
                   </div>
                   <div className="detail-more-body">
@@ -402,7 +402,7 @@ export default function ServiceDetailPage({ detail }: ServiceDetailPageProps) {
                       loading="lazy"
                     />
                     <div className="detail-more-img-badge">
-                      <span>{s.price}</span>
+                      <span>{s.price.toLowerCase().startsWith("from") ? `From $${s.price.replace(/[^0-9]/g, "")}` : `From ${s.price}`}</span>
                     </div>
                   </div>
                   <div className="detail-more-body">

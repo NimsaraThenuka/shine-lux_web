@@ -10,14 +10,14 @@ interface Review {
   rating: number
   text: string
   initials: string
-  tag: string
+  tag?: string
 }
 
 const reviews: Review[] = [
   // Slide 1
   {
     id: "1",
-    name: " Jenkins",
+    name: "Sarah Jenkins",
     location: "South Yarra, VIC",
     service: "End of Lease Clean",
     rating: 5,
@@ -28,7 +28,7 @@ const reviews: Review[] = [
   {
     id: "2",
     name: "David & Michelle T.",
-    location: "Paddington, NSW",
+    location: "Cranbourne, VIC",
     service: "Regular Fortnightly Clean",
     rating: 5,
     tag: "Recurring Client",
@@ -38,28 +38,28 @@ const reviews: Review[] = [
   {
     id: "3",
     name: "Marcus Vance",
-    location: "Newstead, QLD",
+    location: "Dandenong, VIC",
     service: "Commercial Office Clean",
     rating: 5,
     tag: "Corporate Client",
-    text: "They manage our 45-desk tech agency office in Brisbane. Everything from boardrooms to kitchenettes is kept immaculately clean. Professional communication, reliable security protocols, and great attention to detail.",
+    text: "They manage our 45-desk tech agency office in Dandenong. Everything from boardrooms to kitchenettes is kept immaculately clean. Professional communication, reliable security protocols, and great attention to detail.",
     initials: "MV",
   },
   // Slide 2
   {
     id: "4",
     name: "Chloe Henderson",
-    location: "Subiaco, WA",
-    service: "Steam & Carpet Clean",
+    location: "Berwick, VIC",
+    service: "Carpet Steam Clean",
     rating: 5,
-    tag: "Carpet Restored",
+    tag: "Carpet Steam Clean",
     text: "Our living room wool carpet had stubborn stains from pets and foot traffic. The team brought it back to life without any harsh chemical smells. Prompt, friendly, and exceptional standard of work.",
     initials: "CH",
   },
   {
     id: "5",
     name: "Liam O'Connor",
-    location: "Gold Coast, QLD",
+    location: "Springvale, VIC",
     service: "One-Off Deep Clean",
     rating: 5,
     tag: "Seasonal Reset",
@@ -69,7 +69,7 @@ const reviews: Review[] = [
   {
     id: "6",
     name: "Rebecca Zhang",
-    location: "Norwood, SA",
+    location: "Doncaster, VIC",
     service: "Builders Cleaning",
     rating: 5,
     tag: "New Handover",
@@ -80,7 +80,7 @@ const reviews: Review[] = [
   {
     id: "7",
     name: "James & Emma Wilson",
-    location: "Manly, NSW",
+    location: "Frankston, VIC",
     service: "Window & Glass Clean",
     rating: 5,
     tag: "Crystal Clear",
@@ -100,7 +100,7 @@ const reviews: Review[] = [
   {
     id: "9",
     name: "Daniel Miller",
-    location: "Brisbane, QLD",
+    location: "Northcote, VIC",
     service: "Apartment Handover Clean",
     rating: 5,
     tag: "Deposit Returned",
@@ -261,7 +261,7 @@ export default function ReviewsSection() {
                         <Icon key={i} name="star" size={15} />
                       ))}
                     </div>
-                    <span className="review-box-tag">{item.tag}</span>
+                    {item.tag ? <span className="review-box-tag">{item.tag}</span> : null}
                   </div>
 
                   <p className="review-box-text">
