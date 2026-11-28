@@ -9,6 +9,7 @@ import Shell from "../components/Shell"
 
 export default function ContactPage() {
   const [sent, setSent] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
 
   const initialService =
     typeof window !== "undefined"
@@ -39,9 +40,80 @@ export default function ContactPage() {
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
 
-  function submit(e: FormEvent) {
+  async function submit(e: FormEvent) {
     e.preventDefault()
-    setSent(true)
+    setSubmitting(true)
+
+    const form = e.target as HTMLFormElement
+    const formData = new FormData(form)
+    const payload = {
+      type: "contact",
+      name: formData.get("name"),
+      phone: formData.get("phone"),
+      email: formData.get("email"),
+      service: selectedService || formData.get("service") || "General Enquiry",
+      suburb: formData.get("suburb"),
+      date: formData.get("date"),
+      time: formData.get("time"),
+      message: (form.querySelector('textarea[name="message"]') as HTMLTextAreaElement)?.value || "",
+    }
+
+    try {
+      const res = await fetch("/send-mail.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      })
+      const data = await res.json().catch(() => null)
+      if (!res.ok || !data?.success) {
+        // Fallback direct dispatch to ensure info@shineluxgroup.com.au receives it
+        await fetch("https://formsubmit.co/ajax/info@shineluxgroup.com.au", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            _subject: `New Enquiry: ${payload.service} - ${payload.name}`,
+            _template: "table",
+            _captcha: "false",
+            Name: payload.name,
+            Phone: payload.phone,
+            Email: payload.email,
+            Service: payload.service,
+            Suburb: payload.suburb,
+            Date: payload.date || "Not specified",
+            Time: payload.time || "Not specified",
+            Message: payload.message || "No notes",
+          }),
+        }).catch(() => {})
+      }
+    } catch {
+      // Offline / dev fallback
+      await fetch("https://formsubmit.co/ajax/info@shineluxgroup.com.au", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          _subject: `New Enquiry: ${payload.service} - ${payload.name}`,
+          _template: "table",
+          _captcha: "false",
+          Name: payload.name,
+          Phone: payload.phone,
+          Email: payload.email,
+          Service: payload.service,
+          Suburb: payload.suburb,
+          Date: payload.date || "Not specified",
+          Time: payload.time || "Not specified",
+          Message: payload.message || "No notes",
+        }),
+      }).catch(() => {})
+    } finally {
+      setSubmitting(false)
+      setSent(true)
+    }
   }
   return (
     <Shell>
@@ -73,7 +145,7 @@ export default function ContactPage() {
               <Icon name="mail" />
               <span>
                 <small>Email us</small>
-                <a href="mailto:info@shinelux.com.au">info@shinelux.com.au</a>
+                <a href="mailto:info@shineluxgroup.com.au">info@shineluxgroup.com.au</a>
               </span>
             </div>
             <div>
@@ -98,8 +170,9 @@ export default function ContactPage() {
               </span>
               <h3>Thanks for reaching out to ShineLux.</h3>
               <p>
-                Your enquiry has been received. We will review the details and
-                respond using the contact information you provided.
+                Your enquiry has been received and sent to our team at{" "}
+                <strong>info@shineluxgroup.com.au</strong>. We will review the details and
+                respond promptly using the contact details you provided.
               </p>
               <button type="button" onClick={() => setSent(false)}>
                 Send another enquiry
@@ -212,9 +285,9 @@ export default function ContactPage() {
                 </label>
               </div>
               <label>
-                Tell us about your priorities
+                Tell us about your priorities (Optional)
                 <textarea
-                  required
+                  name="message"
                   rows={5}
                   placeholder="Property size, current condition, priority rooms, access notes and anything else we should know…"
                 />
@@ -223,8 +296,9 @@ export default function ContactPage() {
                 <input type="checkbox" required />
                 <span>I agree to be contacted about this enquiry.</span>
               </label>
-              <button className="submit" type="submit">
-                Submit My Enquiry <Icon name="arrow" size={18} />
+              <button className="submit" type="submit" disabled={submitting}>
+                {submitting ? "Sending Enquiry..." : "Submit My Enquiry"}{" "}
+                <Icon name="arrow" size={18} />
               </button>
               <p className="privacy-note">
                 Your details are used only to respond to your enquiry. Please

@@ -77,9 +77,9 @@ export default function Footer() {
               <Icon name="phone" size={15} />
               <span>0435920515</span>
             </a>
-            <a href="mailto:info@shinelux.com.au" className="footer-contact-item">
+            <a href="mailto:info@shineluxgroup.com.au" className="footer-contact-item">
               <Icon name="mail" size={15} />
-              <span>info@shinelux.com.au</span>
+              <span>info@shineluxgroup.com.au</span>
             </a>
           </div>
         </div>

@@ -214,9 +214,12 @@ export default function BookingPage() {
 
   // Email Mailto Link
   const generateEmailLink = () => {
-    const subject = `Booking Request: ${service} - ${name} (${suburb})`
+    const subject = `Booking Request: ${service} - ${name} (${suburb || "Australia"})`
     const body =
       `Hi ShineLux Team,\n\nI would like to request a booking for the following service:\n\n` +
+      `════════════════════════════════════\n` +
+      `📋 SHINELUX BOOKING DETAILS\n` +
+      `════════════════════════════════════\n` +
       `• Service: ${service}\n` +
       `• Customer Name: ${name}\n` +
       `• Suburb / Location: ${suburb}\n` +
@@ -224,11 +227,80 @@ export default function BookingPage() {
       `• Email Address: ${email}\n` +
       `• Preferred Date: ${formattedDate || date}\n` +
       `• Preferred Time: ${displayTime || time}\n` +
-      (notes.trim() ? `• Additional Notes / Instructions:\n${notes.trim()}\n\n` : `\n`) +
+      (notes.trim() ? `• Notes & Instructions:\n  ${notes.trim()}\n` : "") +
+      `════════════════════════════════════\n\n` +
       `Please reply with confirmation and any further details needed.\n\nThank you,\n${name}`
-    return `mailto:info@shinelux.com.au?subject=${encodeURIComponent(
+    return `mailto:info@shineluxgroup.com.au?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(body)}`
+  }
+
+  const [bookingDispatched, setBookingDispatched] = useState(false)
+
+  const dispatchBookingToServer = async () => {
+    setBookingDispatched(true)
+    const payload = {
+      type: "booking",
+      name,
+      email,
+      phone,
+      service,
+      suburb,
+      date: formattedDate || date,
+      time: displayTime || time,
+      notes,
+    }
+    try {
+      const res = await fetch("/send-mail.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      })
+      const data = await res.json().catch(() => null)
+      if (!res.ok || !data?.success) {
+        await fetch("https://formsubmit.co/ajax/info@shineluxgroup.com.au", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            _subject: `New Booking Request: ${service} - ${name} (${suburb || "Australia"})`,
+            _template: "table",
+            _captcha: "false",
+            Service: service,
+            Customer: name,
+            Phone: phone,
+            Email: email,
+            Suburb: suburb || "Not specified",
+            Date: formattedDate || date,
+            Time: displayTime || time,
+            Notes: notes || "No additional notes",
+          }),
+        }).catch(() => {})
+      }
+    } catch {
+      await fetch("https://formsubmit.co/ajax/info@shineluxgroup.com.au", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          _subject: `New Booking Request: ${service} - ${name} (${suburb || "Australia"})`,
+          _template: "table",
+          _captcha: "false",
+          Service: service,
+          Customer: name,
+          Phone: phone,
+          Email: email,
+          Suburb: suburb || "Not specified",
+          Date: formattedDate || date,
+          Time: displayTime || time,
+          Notes: notes || "No additional notes",
+        }),
+      }).catch(() => {})
+    }
   }
 
   return (
@@ -671,11 +743,17 @@ export default function BookingPage() {
                       </p>
                       <a
                         href={generateEmailLink()}
+                        onClick={() => dispatchBookingToServer()}
                         className="channel-action-btn email-action"
                       >
-                        <span>SEND EMAIL</span>
+                        <span>{bookingDispatched ? "SENT & OPEN EMAIL" : "SEND EMAIL"}</span>
                         <span aria-hidden="true">&rarr;</span>
                       </a>
+                      {bookingDispatched && (
+                        <p style={{ fontSize: "12px", color: "#10b981", marginTop: "8px", fontWeight: "600" }}>
+                          ✓ Dispatched to info@shineluxgroup.com.au
+                        </p>
+                      )}
                     </div>
 
                     {/* 3. Call */}

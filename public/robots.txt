@@ -1,4 +1,4 @@
-User-agent: *
+weUser-agent: *
 Allow: /
 
-Sitemap: https://shinelux.com.au/sitemap.xml
+Sitemap: https://shineluxgroup.com/sitemap.xml

@@ -24,7 +24,7 @@ export default function App() {
     let title = "ShineLux | Professional Cleaning Services Across Australia"
     let description =
       "Premium residential, commercial, and industrial cleaning services across Australia. Transparent pricing, police-vetted cleaners, and guaranteed quality."
-    const baseUrl = "https://shinelux.com.au"
+    const baseUrl = "https://shineluxgroup.com"
     const currentUrl = `${baseUrl}${path === "/" ? "" : path}`
 
     if (path.startsWith("/services/") && path !== "/services") {
